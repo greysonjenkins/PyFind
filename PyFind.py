@@ -1,7 +1,12 @@
+# Project Name: PyFind
+# Author: Greyson Jenkins
+
+
 import re
 import pyperclip
 
 matches = []
+
 
 def extractLinks(text):
 
@@ -19,6 +24,7 @@ def extractLinks(text):
 
     # Iterates through each tuple in the list returned by .findall()
     for group in links:
+        
             link = ''.join(group) # Join all strings in each tuple
 
             if link in matches: # If a link is already stored in the match list, it is ignored
