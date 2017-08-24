@@ -47,7 +47,6 @@ def extractPhones(text):
     phones = phoneRegex.findall(text)
     print(phones)
 
-
     for phoneNum in phones:
 
         phoneNumber = ''.join(phoneNum)
