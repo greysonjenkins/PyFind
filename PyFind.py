@@ -24,7 +24,7 @@ def extractLinks(text):
 
     # Iterates through each tuple in the list returned by .findall()
     for group in links:
-        
+
             link = ''.join(group) # Join all strings in each tuple
 
             if link in matches: # If a link is already stored in the match list, it is ignored
@@ -36,35 +36,27 @@ def extractLinks(text):
 
 def extractPhones(text):
 
-    phoneRegex = re.compile(r'''(
+    phoneRegex = re.compile(r'''
         (\d\d\d|\(\d\d\d\))?      # area code
         (\s|-|\.)?                # separator
         (\d\d\d)                  # first 3 digits
         (\s|-|\.)                 # separator
         (\d\d\d\d)                # last 4 digits
-        )''', re.VERBOSE)
+        ''', re.VERBOSE)
 
     phones = phoneRegex.findall(text)
+    print(phones)
 
     for phoneNum in phones:
 
-        if phoneNum[1] == '':
-            phoneNum = '-'.join([phoneNum[3], phoneNum[5]])
+        phoneNumber = ''.join(phoneNum)
+        phoneNumber = phoneNumber.strip()
 
-            if phoneNum in matches:
-                pass
-
-            else:
-                matches.append(phoneNum)
+        if phoneNumber in matches:
+            pass
 
         else:
-            phoneNum = '-'.join([phoneNum[1], phoneNum[3], phoneNum[5]])
-
-            if phoneNum in matches:
-                pass
-
-            else:
-                matches.append(phoneNum)
+            matches.append(phoneNumber)
 
 
 def extractEmails(text):
