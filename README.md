@@ -1,4 +1,7 @@
 # PyFind
+
+[![BCH compliance](https://bettercodehub.com/edge/badge/greysonjenkins/PyFind?branch=master)](https://bettercodehub.com/)
+
 This is a simple Python script that takes a user's copied text and extracts specified information (emails, links, and/or phone numbers).
 
 Instructions:
