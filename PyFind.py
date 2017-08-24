@@ -46,7 +46,6 @@ def extractPhones(text):
         ''', re.VERBOSE)
 
     phones = phoneRegex.findall(text)
-    print(phones)
 
     for phoneNum in phones:
 
@@ -86,7 +85,7 @@ validInput = False
 
 while validInput == False:
 
-    print("What would you like to extract? Separate items with spaces")
+    print("What would you like to extract? Separate commands with spaces\nEligible commands: phones, links, emails")
     toExtract = input("> ")
 
     toExtract = toExtract.split()
@@ -98,7 +97,7 @@ while validInput == False:
             regexDict[item](extractFrom)
 
         else:
-            print("\nInvalid parameter detected. Please try again.")
+            print("\nInvalid parameter detected. Please try again.\n")
 
 
 matches = '\n'.join(matches)
