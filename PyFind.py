@@ -11,14 +11,14 @@ matches = []
 def extractLinks(text):
 
     linkRegex = re.compile(r'''
-        \s                           # By searching for a space before the link, the regex will not mistake the final part of an email for a link
-        (http:\/\/|https:\/\/)?      # Search for protocol (optional)
-        (www\.)?                     # Search for www. (optional)
-        ([a-z0-9]*)                  # Search for domain name of any length (required)
-        (\.)                         # Search for . (required)
-        (com|net|org|gov|edu)        # Search for domain type (required)
-    ''', re.IGNORECASE | re.VERBOSE) # re.IGNORECASE ignores whether a letter is capitalized or lower case. re.VERBOSE ignores whitespace
-                                     # and allows for comments
+        \s                                    # By searching for a space before the link, the regex will not mistake the final part of an email for a link
+        (http:\/\/|https:\/\/)?               # Search for protocol (optional)
+        (www\.)?                              # Search for www. (optional)
+        ([a-z0-9]*)                           # Search for domain name of any length (required)
+        (\.)                                  # Search for . (required)
+        (com|net|org|gov|edu|io|xyz|co)       # Search for domain type (required)
+    ''', re.IGNORECASE | re.VERBOSE)          # re.IGNORECASE ignores whether a letter is capitalized or lower case. re.VERBOSE ignores whitespace
+                                              # and allows for comments
 
     links = linkRegex.findall(text) # Search text using linkRegex regular expression, store the matches in the links varbiable
 
@@ -101,6 +101,8 @@ while validInput == False:
 
 
 matches = '\n'.join(matches)
+
 pyperclip.copy(matches)
+
 print("\nCopied to clipboard\n------------------")
 print(matches)
