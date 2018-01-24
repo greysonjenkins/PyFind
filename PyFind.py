@@ -85,7 +85,7 @@ validInput = False
 
 while validInput == False:
 
-    print("What would you like to extract? Separate commands with spaces\nEligible commands: phones, links, emails")
+    print("\nWhat would you like to extract? Separate commands with spaces\nEligible commands: phones, links, emails")
     toExtract = input("> ")
 
     toExtract = toExtract.split()
